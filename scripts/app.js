@@ -1,4 +1,4 @@
-\
+
 const QUESTIONS = ['/questions/level1.json','/questions/level2.json','/questions/level3.json'];
 
 async function loadAll() {
