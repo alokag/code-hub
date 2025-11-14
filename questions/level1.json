@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Count vowels in a string",
+    "description": "Count vowels in given string.",
+    "sample": "\"hello\" -> 2",
+    "solution": "function countVowels(s){const v=new Set(['a','e','i','o','u']);let c=0;for(const ch of s.toLowerCase()) if(v.has(ch)) c++;return c;}"
+  },
+  {
+    "title": "Find max in array",
+    "description": "Return largest number.",
+    "sample": "[1,5,3] -> 5",
+    "solution": "function findMax(a){return a.reduce((m,x)=> x>m?x:m,a[0]||null);}"
+  },
+  {
+    "title": "Reverse string",
+    "description": "Reverse without built-in reverse.",
+    "sample": "\"abc\" -> \"cba\"",
+    "solution": "function reverseString(s){let r='';for(let i=s.length-1;i>=0;i--) r+=s[i];return r;}"
+  },
+  {
+    "title": "Remove duplicates (preserve order)",
+    "description": "Return unique values preserving order.",
+    "sample": "[1,2,2,3] -> [1,2,3]",
+    "solution": "function unique(arr){const s=new Set();const r=[];for(const x of arr) if(!s.has(x)){s.add(x);r.push(x);}return r;}"
+  },
+  {
+    "title": "Binary Search (iterative)",
+    "description": "Return index or -1.",
+    "sample": "[1,2,3], target=2 -> 1",
+    "solution": "function binarySearch(arr,target){let l=0,r=arr.length-1;while(l<=r){const m=(l+r)>>1;if(arr[m]===target)return m;arr[m]<target?l=m+1:r=m-1;}return -1;}"
+  }
+]

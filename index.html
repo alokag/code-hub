@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coding Question App — v2</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link href="https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+</head>
+<body class="light">
+  <header class="topbar">
+    <div class="brand">🧩 <strong>Coding</strong> Questions</div>
+    <div class="controls">
+      <input id="search" placeholder="Search questions, keywords, tags..." aria-label="Search" />
+      <select id="levelFilter" aria-label="Filter by level">
+        <option value="all">All Levels</option>
+        <option value="level1">Level 1 - Basics</option>
+        <option value="level2">Level 2 - Intermediate</option>
+        <option value="level3">Level 3 - Advanced</option>
+      </select>
+      <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="levels">
+      <button class="lvlbtn" data-level="level1">Level 1</button>
+      <button class="lvlbtn" data-level="level2">Level 2</button>
+      <button class="lvlbtn" data-level="level3">Level 3</button>
+      <button class="lvlbtn active" data-level="all">All</button>
+    </nav>
+
+    <section id="questions" class="questions" aria-live="polite">
+      <!-- questions rendered here -->
+    </section>
+  </main>
+
+  <template id="q-template">
+    <article class="question-card">
+      <header class="q-head">
+        <div class="q-meta"><span class="q-level"></span> • <span class="q-id"></span></div>
+        <h3 class="q-title"></h3>
+      </header>
+      <p class="q-desc"></p>
+      <div class="q-sample"></div>
+      <div class="q-actions">
+        <button class="show-sol">Show Solution</button>
+        <button class="copy-code">Copy Code</button>
+      </div>
+      <div class="q-solution" hidden>
+        <pre><code class="language-javascript codeblock"></code></pre>
+      </div>
+    </article>
+  </template>
+
+  <footer class="footer">
+    <div>Static app • Deploy on Vercel • No backend</div>
+    <div>Made nicer for mobile & desktop — tap a question to reveal solution</div>
+  </footer>
+
+  <script src="https://unpkg.com/prismjs@1.29.0/prism.js"></script>
+  <script src="/scripts/app.js"></script>
+</body>
+</html>

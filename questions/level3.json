@@ -1,0 +1,26 @@
+[
+  {
+    "title": "LRU Cache (Map)",
+    "description": "Map-based LRU cache using insertion order.",
+    "sample": "operations example",
+    "solution": "class LRUCache{constructor(cap){this.cap=cap;this.map=new Map();}get(k){if(!this.map.has(k))return -1;const v=this.map.get(k);this.map.delete(k);this.map.set(k,v);return v;}put(k,v){if(this.map.has(k))this.map.delete(k);else if(this.map.size>=this.cap)this.map.delete(this.map.keys().next().value);this.map.set(k,v);} }"
+  },
+  {
+    "title": "Dijkstra (naive)",
+    "description": "Shortest paths from source (naive O(V^2)).",
+    "sample": "",
+    "solution": "function dijkstra(adj,src){const dist={};for(const u in adj)dist[u]=Infinity;dist[src]=0;const visited=new Set();while(true){let u=null,best=Infinity;for(const k in dist)if(!visited.has(k)&&dist[k]<best){best=dist[k];u=k;}if(u===null)break;visited.add(u);for(const [v,w] of adj[u]||[])if(dist[u]+w<dist[v])dist[v]=dist[u]+w;}return dist;}"
+  },
+  {
+    "title": "LIS (n log n)",
+    "description": "Length of LIS using patience sorting.",
+    "sample": "",
+    "solution": "function lengthOfLIS(nums){const tails=[];for(const x of nums){let l=0,r=tails.length;while(l<r){const m=(l+r)>>1;if(tails[m]<x)l=m+1;else r=m;}tails[l]=x;}return tails.length;}"
+  },
+  {
+    "title": "Kruskal MST (union-find)",
+    "description": "Return weight of MST.",
+    "sample": "",
+    "solution": "function kruskal(n,edges){edges.sort((a,b)=>a[2]-b[2]);const p=Array.from({length:n},(_,i)=>i);function find(x){return p[x]===x?x:p[x]=find(p[x]);}let total=0;for(const [u,v,w] of edges){const pu=find(u),pv=find(v);if(pu!==pv){p[pu]=pv;total+=w;}}return total;}"
+  }
+]
